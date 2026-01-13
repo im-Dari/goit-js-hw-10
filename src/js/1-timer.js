@@ -11,7 +11,7 @@ const hoursEl = document.querySelector("[data-hours]");
 const minutesEl = document.querySelector("[data-minutes]");
 const secondsEl = document.querySelector("[data-seconds]");
 
-/* startBtn.disabled = true; */
+startBtn.disabled = true;
 
 let selectedDate = null;
 let timerId = null;
@@ -30,7 +30,7 @@ flatpickr(input, {
         if (pickedDate <= new Date ()) {
             
         iziToast.show({
-    message: '<strong>Error</strong> Illegal operation',
+    message: '<strong>Error</strong> Please choose a date in the future',
     position: 'topRight', 
     backgroundColor: '#e74c3c',
     messageColor: '#ffffff',
@@ -60,7 +60,7 @@ startBtn.addEventListener( "click", () => {
             clearInterval(timerId);
             updateTimer(convertMs(0));
          input.disabled = false; 
-         startBtn.disabled = false;
+         startBtn.disabled = true;
          return;
         }
 
